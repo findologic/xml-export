@@ -135,7 +135,7 @@
     <!-- Prices -->
     <xs:complexType name="pricesType">
         <xs:sequence>
-            <xs:element name="price">
+            <xs:element name="price" minOccurs="1" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="xs:decimal">
