@@ -39,8 +39,9 @@
             <xs:element type="allAttributesType" name="allAttributes" minOccurs="1" maxOccurs="1"/>
             <xs:element type="allKeywordsType" name="allKeywords" minOccurs="1" maxOccurs="1"/>
             <xs:element type="salesFrequenciesType" name="salesFrequencies" minOccurs="1" maxOccurs="1"/>
+            <xs:element type="usergroupsType" name="usergroups" minOccurs="1" maxOccurs="1"/>
             <xs:element type="dateAddedsType" name="dateAddeds" minOccurs="1" maxOccurs="1"/>
-            <xs:element type="propertiesType" name="properties" minOccurs="1" maxOccurs="1"/>
+            <xs:element type="allPropertiesType" name="allProperties" minOccurs="1" maxOccurs="1"/>
             <!-- Optional -->
             <xs:element type="bonusesType" name="bonuses" minOccurs="0" maxOccurs="1"/>
             <xs:element type="sortsType" name="sorts" minOccurs="0" maxOccurs="1"/>
@@ -51,13 +52,13 @@
     <!-- Images -->
     <xs:complexType name="allImagesType">
         <xs:sequence>
-            <xs:element type="imagesType" name="images" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element type="imagesType" name="images" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
     
     <xs:complexType name="imagesType">
         <xs:sequence>
-            <xs:element type="imageType" name="image" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element type="imageType" name="image" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -78,7 +79,7 @@
     <!-- Keywords -->
     <xs:complexType name="allKeywordsType">
         <xs:sequence>
-            <xs:element name="keywords">
+            <xs:element name="keywords" minOccurs="0" maxOccurs="unbounded" >
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element type="xs:string" name="keyword" maxOccurs="unbounded" minOccurs="0"/>
@@ -88,11 +89,18 @@
         </xs:sequence>
         <xs:attribute type="usergroupHash" name="usergroup" use="optional"/>
     </xs:complexType>
-
+    
     <!-- Properties -->
+    <xs:complexType name="allPropertiesType">
+        <xs:sequence>
+            <xs:element type="propertiesType" name="properties" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute type="usergroupHash" name="usergroup" use="optional"/>
+    </xs:complexType>
+
     <xs:complexType name="propertiesType">
         <xs:sequence>
-            <xs:element type="keyValuesPair" name="property" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element type="keyValuePair" name="property" maxOccurs="unbounded" minOccurs="0"/>
         </xs:sequence>
         <xs:attribute type="usergroupHash" name="usergroup" use="optional"/>
     </xs:complexType>
@@ -107,7 +115,7 @@
     <!-- Attributes -->
     <xs:complexType name="allAttributesType">
         <xs:sequence>
-            <xs:element name="attributes">
+            <xs:element name="attributes" maxOccurs="unbounded" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element type="keyValuesPair" name="attribute" maxOccurs="unbounded" minOccurs="0"/>
@@ -150,7 +158,7 @@
     <!-- Ordernumber -->
     <xs:complexType name="allOrdernumbersType">
         <xs:sequence>
-            <xs:element name="ordernumbers">
+            <xs:element name="ordernumbers" maxOccurs="unbounded" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element type="xs:string" name="ordernumber" maxOccurs="unbounded" minOccurs="0"/>
@@ -201,7 +209,7 @@
         </xs:simpleContent>
     </xs:complexType>
 
-    <!-- Generic structure for key-value-pair elements -->
+    <!-- Generic structure for key with multiple values elements -->
     <xs:complexType name="keyValuesPair">
         <xs:sequence>
             <xs:element name="key">
@@ -212,6 +220,26 @@
                 </xs:simpleType>
             </xs:element>
             <xs:element type="attributeValues"  name="values"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- Generic structure for key-value-pair elements -->
+    <xs:complexType name="keyValuePair">
+        <xs:sequence>
+            <xs:element name="key">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="value">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
         </xs:sequence>
     </xs:complexType>
 
@@ -229,7 +257,22 @@
 
     <xs:complexType name="salesFrequenciesType">
         <xs:sequence>
-            <xs:element name="salesFrequency">
+            <xs:element name="salesFrequency" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:nonNegativeInteger">
+                            <xs:attribute type="usergroupHash" name="usergroup" use="optional"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+
+    <xs:complexType name="usergroupsType">
+        <xs:sequence>
+            <xs:element name="usergroup" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="xs:nonNegativeInteger">
