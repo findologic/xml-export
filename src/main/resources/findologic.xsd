@@ -166,6 +166,7 @@
                     <xs:attribute type="usergroupHash" name="usergroup" use="optional"/>
                 </xs:complexType>
             </xs:element>
+            <xs:element type="xs:string" name="ordernumber" maxOccurs="unbounded" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
 
