@@ -129,14 +129,14 @@
     <!-- URLs -->
     <xs:complexType name="urlsType">
         <xs:sequence>
-            <xs:element type="httpURI" name="url"/>
+            <xs:element type="httpURI" name="url" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
     <!-- Summaries -->
     <xs:complexType name="summariesType">
         <xs:sequence>
-            <xs:element type="stringWithUsergroup" name="summary"/>
+            <xs:element type="stringWithUsergroup" name="summary" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -172,7 +172,7 @@
     <!-- Descriptions -->
     <xs:complexType name="descriptionsType">
         <xs:sequence>
-            <xs:element type="stringWithUsergroup" name="description"/>
+            <xs:element type="stringWithUsergroup" name="description" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -286,7 +286,7 @@
 
     <xs:complexType name="dateAddedsType">
         <xs:sequence>
-            <xs:element name="dateAdded">
+            <xs:element name="dateAdded" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="xs:dateTime">
@@ -300,7 +300,7 @@
 
     <xs:complexType name="bonusesType">
         <xs:sequence>
-            <xs:element name="bonus">
+            <xs:element name="bonus" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="xs:decimal">
@@ -314,7 +314,7 @@
 
     <xs:complexType name="sortsType">
         <xs:sequence>
-            <xs:element name="sort">
+            <xs:element name="sort" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="xs:integer">
