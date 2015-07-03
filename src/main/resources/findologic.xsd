@@ -60,6 +60,7 @@
         <xs:sequence>
             <xs:element type="imageType" name="image" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
+        <xs:attribute type="usergroupHash" name="usergroup" use="optional"/>
     </xs:complexType>
 
     <xs:complexType name="imageType">
@@ -84,10 +85,10 @@
                     <xs:sequence>
                         <xs:element type="xs:string" name="keyword" maxOccurs="unbounded" minOccurs="0"/>
                     </xs:sequence>
+                    <xs:attribute type="usergroupHash" name="usergroup" use="optional"/>
                 </xs:complexType>
             </xs:element>
         </xs:sequence>
-        <xs:attribute type="usergroupHash" name="usergroup" use="optional"/>
     </xs:complexType>
     
     <!-- Properties -->
@@ -129,7 +130,15 @@
     <!-- URLs -->
     <xs:complexType name="urlsType">
         <xs:sequence>
-            <xs:element type="httpURI" name="url" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="url" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="httpURI">
+                            <xs:attribute type="usergroupHash" name="usergroup" use="optional"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
         </xs:sequence>
     </xs:complexType>
 
