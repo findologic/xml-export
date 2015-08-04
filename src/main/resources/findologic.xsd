@@ -27,7 +27,7 @@
 
     <!-- Structure of items. -->
     <xs:complexType name="itemType">
-        <xs:choice maxOccurs="unbounded" minOccurs="1">
+        <xs:all>
             <!-- Mandatory -->
             <xs:element type="allOrdernumbersType" name="allOrdernumbers" minOccurs="1" maxOccurs="1"/>
             <xs:element type="namesType" name="names" minOccurs="1" maxOccurs="1"/>
@@ -45,7 +45,7 @@
             <!-- Optional -->
             <xs:element type="bonusesType" name="bonuses" minOccurs="0" maxOccurs="1"/>
             <xs:element type="sortsType" name="sorts" minOccurs="0" maxOccurs="1"/>
-        </xs:choice>
+        </xs:all>
         <xs:attribute type="xs:string" name="id" use="required"/>
     </xs:complexType>
     
