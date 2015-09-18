@@ -111,6 +111,7 @@
         <xs:sequence>
             <xs:element type="stringWithUsergroup" name="name" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
+        <xs:assert test="(count(name) = 0) or (count(name) = count(name[@usergroup]) + 1)" />
     </xs:complexType>
 
     <!-- Attributes -->
