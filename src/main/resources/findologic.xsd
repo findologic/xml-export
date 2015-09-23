@@ -56,7 +56,7 @@
             <xs:element type="imagesType" name="images" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
         <xs:assert vc:minVersion="1.1"
-                test="(count(images) = 0) or (count(images) = count(images[@usergroup]) + 1)"/>
+                test="(count(images) = 0) or (count(images[not(@usergroup)]) = 1)"/>
     </xs:complexType>
     
     <xs:complexType name="imagesType">
@@ -93,7 +93,7 @@
             </xs:element>
         </xs:sequence>
         <xs:assert vc:minVersion="1.1"
-                test="(count(keywords) = 0) or (count(keywords) = count(keywords[@usergroup]) + 1)"/>
+                test="(count(keywords) = 0) or (count(keywords[not(@usergroup)]) = 1)"/>
     </xs:complexType>
     
     <!-- Properties -->
@@ -102,7 +102,7 @@
             <xs:element type="propertiesType" name="properties" maxOccurs="unbounded" minOccurs="0"/>
         </xs:sequence>
         <xs:assert vc:minVersion="1.1"
-                test="(count(properties) = 0) or (count(properties) = count(properties[@usergroup]) + 1)"/>
+                test="(count(properties) = 0) or (count(properties[not(@usergroup)]) = 1)"/>
     </xs:complexType>
 
     <xs:complexType name="propertiesType">
@@ -118,7 +118,7 @@
             <xs:element type="stringWithUsergroup" name="name" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
         <xs:assert vc:minVersion="1.1"
-                test="(count(name) = 0) or (count(name) = count(name[@usergroup]) + 1)"/>
+                test="(count(name) = 0) or (count(name[not(@usergroup)]) = 1)"/>
     </xs:complexType>
 
     <!-- Attributes -->
@@ -134,7 +134,7 @@
             </xs:element>
         </xs:sequence>
         <xs:assert vc:minVersion="1.1"
-                test="(count(attributes) = 0) or (count(attributes) = count(attributes[@usergroup]) + 1)"/>
+                test="(count(attributes) = 0) or (count(attributes[not(@usergroup)]) = 1)"/>
     </xs:complexType>
 
     <!-- URLs -->
@@ -150,7 +150,7 @@
                 </xs:complexType>
             </xs:element>
         </xs:sequence>
-        <xs:assert vc:minVersion="1.1" test="(count(url) = 0) or (count(url) = count(url[@usergroup]) + 1)"/>
+        <xs:assert vc:minVersion="1.1" test="(count(url) = 0) or (count(url[not(@usergroup)]) = 1)"/>
     </xs:complexType>
 
     <!-- Summaries -->
@@ -159,7 +159,7 @@
             <xs:element type="stringWithUsergroup" name="summary" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
         <xs:assert vc:minVersion="1.1"
-                test="(count(summary) = 0) or (count(summary) = count(summary[@usergroup]) + 1)"/>
+                test="(count(summary) = 0) or (count(summary[not(@usergroup)]) = 1)"/>
     </xs:complexType>
 
     <!-- Prices -->
@@ -176,7 +176,7 @@
             </xs:element>
         </xs:sequence>
         <xs:assert vc:minVersion="1.1"
-                test="(count(price) = 0) or (count(price) = count(price[@usergroup]) + 1)"/>
+                test="(count(price) = 0) or (count(price[not(@usergroup)]) = 1)"/>
     </xs:complexType>
 
     <!-- Ordernumber -->
@@ -192,7 +192,7 @@
             </xs:element>
         </xs:sequence>
         <xs:assert vc:minVersion="1.1"
-                test="(count(ordernumbers) = 0) or (count(ordernumbers) = count(ordernumbers[@usergroup]) + 1)"/>
+                test="(count(ordernumbers) = 0) or (count(ordernumbers[not(@usergroup)]) = 1)"/>
     </xs:complexType>
 
     <!-- Descriptions -->
@@ -201,7 +201,7 @@
             <xs:element type="stringWithUsergroup" name="description" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
         <xs:assert vc:minVersion="1.1"
-                test="(count(description) = 0) or (count(description) = count(description[@usergroup]) + 1)"/>
+                test="(count(description) = 0) or (count(description[not(@usergroup)]) = 1)"/>
     </xs:complexType>
 
     <!-- Simple type variations -->
@@ -315,7 +315,7 @@
             </xs:element>
         </xs:sequence>
         <xs:assert vc:minVersion="1.1"
-                test="(count(dateAdded) = 0) or (count(dateAdded) = count(dateAdded[@usergroup]) + 1)"/>
+                test="(count(dateAdded) = 0) or (count(dateAdded[not(@usergroup)]) = 1)"/>
     </xs:complexType>
 
     <xs:complexType name="bonusesType">
@@ -331,7 +331,7 @@
             </xs:element>
         </xs:sequence>
         <xs:assert vc:minVersion="1.1"
-                test="(count(bonus) = 0) or (count(bonus) = count(bonus[@usergroup]) + 1)"/>
+                test="(count(bonus) = 0) or (count(bonus[not(@usergroup)]) = 1)"/>
     </xs:complexType>
 
     <xs:complexType name="sortsType">
@@ -346,7 +346,7 @@
                 </xs:complexType>
             </xs:element>
         </xs:sequence>
-        <xs:assert vc:minVersion="1.1" test="(count(sort) = 0) or (count(sort) = count(sort[@usergroup]) + 1)"/>
+        <xs:assert vc:minVersion="1.1" test="(count(sort) = 0) or (count(sort[not(@usergroup)]) = 1)"/>
     </xs:complexType>
 
 </xs:schema>
