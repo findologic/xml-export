@@ -199,7 +199,9 @@
 
     <!-- Usergroup support -->
     <xs:simpleType name="usergroupHash">
-        <xs:restriction base="xs:string"/>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+        </xs:restriction>
     </xs:simpleType>
     <xs:complexType name="stringWithUsergroup">
         <xs:simpleContent>
