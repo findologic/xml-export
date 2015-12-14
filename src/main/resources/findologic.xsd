@@ -121,7 +121,6 @@
                     <xs:sequence>
                         <xs:element type="keyValuesPair" name="attribute" maxOccurs="unbounded" minOccurs="0"/>
                     </xs:sequence>
-                    <xs:attribute type="usergroupHash" name="usergroup" use="optional"/>
                 </xs:complexType>
             </xs:element>
         </xs:sequence>
