@@ -1,0 +1,13 @@
+{
+    "name": "findologic/xml-export-schema",
+    "description": "XML schema for the FINDOLOGIC XML export format.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "FINDOLOGIC Developers",
+            "email": "devops@findologic.com"
+        }
+    ],
+    "require": {}
+}
