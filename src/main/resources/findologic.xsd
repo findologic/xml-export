@@ -109,7 +109,7 @@
     <!-- Names -->
     <xs:complexType name="namesType">
         <xs:sequence>
-            <xs:element type="stringWithUsergroup" name="name" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="nameWithUsergroup" name="name" minOccurs="1" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -205,6 +205,19 @@
     <xs:complexType name="stringWithUsergroup">
         <xs:simpleContent>
             <xs:extension base="xs:string">
+                <xs:attribute type="usergroupHash" name="usergroup" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="nonEmptyString">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:whiteSpace value="collapse"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="nameWithUsergroup">
+        <xs:simpleContent>
+            <xs:extension base="nonEmptyString">
                 <xs:attribute type="usergroupHash" name="usergroup" use="optional"/>
             </xs:extension>
         </xs:simpleContent>
