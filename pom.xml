@@ -15,18 +15,4 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
-  <!--<distributionManagement>-->
-    <!--<snapshotRepository>-->
-      <!--<id>com.findologic.snapshot</id>-->
-      <!--<name>FINDOLOGIC Snapshot</name>-->
-      <!--<url>http://10.8.0.1:8082/nexus/content/repositories/com.findologic.snapshot/</url>-->
-    <!--</snapshotRepository>-->
-    <!--<repository>-->
-      <!--<id>com.findologic.release</id>-->
-      <!--<name>FINDOLOGIC Release</name>-->
-      <!--<url>http://10.8.0.1:8082/nexus/content/repositories/com.findologic.release/</url>-->
-    <!--</repository>-->
-  <!--</distributionManagement>-->
-
 </project>
