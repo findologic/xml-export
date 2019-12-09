@@ -46,7 +46,7 @@
             <xs:element type="bonusesType" name="bonuses" minOccurs="0" maxOccurs="1"/>
             <xs:element type="sortsType" name="sorts" minOccurs="0" maxOccurs="1"/>
         </xs:all>
-        <xs:attribute type="xs:string" name="id" use="required"/>
+        <xs:attribute type="nonEmptyString" name="id" use="required"/>
     </xs:complexType>
     
     <!-- Images -->
