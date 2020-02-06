@@ -129,7 +129,7 @@
     <!-- URLs -->
     <xs:complexType name="urlsType">
         <xs:sequence>
-            <xs:element name="url" minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="url" minOccurs="1" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="httpURI">
