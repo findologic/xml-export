@@ -191,10 +191,10 @@
     <!-- Ordernumber -->
     <xs:complexType name="allOrdernumbersType">
         <xs:sequence>
-            <xs:element name="ordernumbers" maxOccurs="unbounded" minOccurs="0">
+            <xs:element name="ordernumbers" maxOccurs="unbounded" minOccurs="1">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element type="xs:string" name="ordernumber" maxOccurs="unbounded" minOccurs="0"/>
+                        <xs:element type="xs:string" name="ordernumber" maxOccurs="unbounded" minOccurs="1"/>
                     </xs:sequence>
                     <xs:attribute type="groupHash" name="usergroup" use="optional"/>
                 </xs:complexType>
@@ -304,7 +304,7 @@
 
     <xs:complexType name="salesFrequenciesType">
         <xs:sequence>
-            <xs:element name="salesFrequency" minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="salesFrequency" minOccurs="1" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="xs:nonNegativeInteger">
@@ -338,7 +338,7 @@
 
     <xs:complexType name="overriddenPricesType">
         <xs:sequence>
-            <xs:element name="overriddenPrice" minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="overriddenPrice" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="xs:decimal">
