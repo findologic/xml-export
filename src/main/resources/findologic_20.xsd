@@ -53,33 +53,9 @@
             <xs:element type="bonusesType" name="bonuses" minOccurs="0" maxOccurs="1"/>
             <xs:element type="sortsType" name="sorts" minOccurs="0" maxOccurs="1"/>
             <xs:element type="visibilitiesType" name="visibilities" minOccurs="0" maxOccurs="1"/>
-            <xs:element type="variantsType" name="variants" minOccurs="0" maxOccurs="1"/>
         </xs:all>
         <xs:attribute type="nonEmptyString" name="id" use="required"/>
     </xs:complexType>
-
-    <xs:complexType name="variantsType">
-        <xs:sequence>
-            <xs:element type="variantType" name="variant" minOccurs="1" maxOccurs="unbounded"/>
-        </xs:sequence>
-    </xs:complexType>
-
-    <xs:complexType name="variantType">
-        <xs:all>
-            <!-- Mandatory -->
-            <xs:element type="allOrdernumbersType" name="allOrdernumbers" minOccurs="1" maxOccurs="1"/>
-            <xs:element type="namesType" name="names" minOccurs="1" maxOccurs="1"/>
-            <xs:element type="pricesType" name="prices" minOccurs="1" maxOccurs="1"/>
-            <xs:element type="allAttributesType" name="allAttributes" minOccurs="1" maxOccurs="1"/>
-            <!-- Optional -->
-            <xs:element type="groupsType" name="groups" minOccurs="0" maxOccurs="1"/>
-            <xs:element type="allPropertiesType" name="allProperties" minOccurs="0" maxOccurs="1"/>
-            <xs:element type="overriddenPricesType" name="overriddenPrices" minOccurs="0" maxOccurs="1"/>
-            <xs:element type="visibilitiesType" name="visibilities" minOccurs="0" maxOccurs="1"/>
-        </xs:all>
-        <xs:attribute type="nonEmptyString" name="id" use="required"/>
-    </xs:complexType>
-
 
     <!-- Images -->
     <xs:complexType name="allImagesType">
