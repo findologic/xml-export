@@ -217,18 +217,13 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:simpleType name="money">
-        <xs:restriction base="xs:decimal">
-            <xs:fractionDigits value="2"/>
-        </xs:restriction>
-    </xs:simpleType>
-
     <!-- Usergroup support -->
     <xs:simpleType name="groupHash">
         <xs:restriction base="xs:string">
             <xs:minLength value="1"/>
         </xs:restriction>
     </xs:simpleType>
+
     <xs:complexType name="stringWithUsergroup">
         <xs:simpleContent>
             <xs:extension base="xs:string">
@@ -236,22 +231,17 @@
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
+
     <xs:simpleType name="nonEmptyString">
         <xs:restriction base="xs:string">
             <xs:minLength value="1"/>
             <xs:whiteSpace value="collapse"/>
         </xs:restriction>
     </xs:simpleType>
+
     <xs:complexType name="nameWithUsergroup">
         <xs:simpleContent>
             <xs:extension base="nonEmptyString">
-                <xs:attribute type="groupHash" name="usergroup" use="optional"/>
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-    <xs:complexType name="moneyWithUsergroup">
-        <xs:simpleContent>
-            <xs:extension base="money">
                 <xs:attribute type="groupHash" name="usergroup" use="optional"/>
             </xs:extension>
         </xs:simpleContent>
