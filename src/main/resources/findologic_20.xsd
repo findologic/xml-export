@@ -57,6 +57,7 @@
             <xs:element type="variantType" name="variant" minOccurs="1" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
+
     <xs:complexType name="variantType">
         <xs:all>
             <!-- Mandatory -->
@@ -215,6 +216,7 @@
             <xs:pattern value="http[s]?://.*"/>
         </xs:restriction>
     </xs:simpleType>
+
     <xs:simpleType name="money">
         <xs:restriction base="xs:decimal">
             <xs:fractionDigits value="2"/>
@@ -349,6 +351,7 @@
             </xs:element>
         </xs:sequence>
     </xs:complexType>
+
     <xs:complexType name="bonusesType">
         <xs:sequence>
             <xs:element name="bonus" minOccurs="0" maxOccurs="unbounded">
@@ -390,5 +393,4 @@
             </xs:element>
         </xs:sequence>
     </xs:complexType>
-
 </xs:schema>
