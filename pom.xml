@@ -4,7 +4,7 @@
   <groupId>com.findologic</groupId>
   <artifactId>xml-export</artifactId>
   <packaging>jar</packaging>
-  <version>1.7.0-SO-FINDO-9587-SNAPSHOT</version>
+  <version>1.7.0-SO-FINDO-9587-dev1-SNAPSHOT</version>
   <name>xml-export</name>
   <url>http://maven.apache.org</url>
 

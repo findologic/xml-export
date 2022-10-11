@@ -177,7 +177,7 @@
             <xs:element name="ordernumbers" maxOccurs="unbounded" minOccurs="1">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element type="xs:string" name="ordernumber" maxOccurs="unbounded" minOccurs="1"/>
+                        <xs:element type="nonEmptyString" name="ordernumber" maxOccurs="unbounded" minOccurs="1"/>
                     </xs:sequence>
                     <xs:attribute type="groupHash" name="usergroup" use="optional"/>
                 </xs:complexType>
