@@ -91,7 +91,7 @@
         <xs:sequence>
             <xs:element type="imageType" name="image" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute type="groupHash" name="usergroup" use="optional"/>
+        <xs:attribute type="nonEmptyString" name="usergroup" use="optional"/>
     </xs:complexType>
 
     <xs:complexType name="imageType">
@@ -116,7 +116,7 @@
                     <xs:sequence>
                         <xs:element type="xs:string" name="keyword" maxOccurs="unbounded" minOccurs="0"/>
                     </xs:sequence>
-                    <xs:attribute type="groupHash" name="usergroup" use="optional"/>
+                    <xs:attribute type="nonEmptyString" name="usergroup" use="optional"/>
                 </xs:complexType>
             </xs:element>
         </xs:sequence>
@@ -127,14 +127,14 @@
         <xs:sequence>
             <xs:element type="propertiesType" name="properties" maxOccurs="unbounded" minOccurs="0"/>
         </xs:sequence>
-        <xs:attribute type="groupHash" name="usergroup" use="optional"/>
+        <xs:attribute type="nonEmptyString" name="usergroup" use="optional"/>
     </xs:complexType>
 
     <xs:complexType name="propertiesType">
         <xs:sequence>
             <xs:element type="keyValuePair" name="property" maxOccurs="unbounded" minOccurs="0"/>
         </xs:sequence>
-        <xs:attribute type="groupHash" name="usergroup" use="optional"/>
+        <xs:attribute type="nonEmptyString" name="usergroup" use="optional"/>
     </xs:complexType>
 
     <!-- Names -->
@@ -175,7 +175,7 @@
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="httpURI">
-                            <xs:attribute type="groupHash" name="usergroup" use="optional"/>
+                            <xs:attribute type="nonEmptyString" name="usergroup" use="optional"/>
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
@@ -197,7 +197,7 @@
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="xs:decimal">
-                            <xs:attribute type="groupHash" name="usergroup" use="optional"/>
+                            <xs:attribute type="nonEmptyString" name="usergroup" use="optional"/>
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
@@ -211,9 +211,9 @@
             <xs:element name="ordernumbers" maxOccurs="unbounded" minOccurs="1">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element type="xs:string" name="ordernumber" maxOccurs="unbounded" minOccurs="1"/>
+                        <xs:element type="nonEmptyString" name="ordernumber" maxOccurs="unbounded" minOccurs="1"/>
                     </xs:sequence>
-                    <xs:attribute type="groupHash" name="usergroup" use="optional"/>
+                    <xs:attribute type="nonEmptyString" name="usergroup" use="optional"/>
                 </xs:complexType>
             </xs:element>
         </xs:sequence>
@@ -233,17 +233,10 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <!-- Usergroup support -->
-    <xs:simpleType name="groupHash">
-        <xs:restriction base="xs:string">
-            <xs:minLength value="1"/>
-        </xs:restriction>
-    </xs:simpleType>
-
     <xs:complexType name="stringWithUsergroup">
         <xs:simpleContent>
             <xs:extension base="xs:string">
-                <xs:attribute type="groupHash" name="usergroup" use="optional"/>
+                <xs:attribute type="nonEmptyString" name="usergroup" use="optional"/>
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
@@ -258,7 +251,7 @@
     <xs:complexType name="nameWithUsergroup">
         <xs:simpleContent>
             <xs:extension base="nonEmptyString">
-                <xs:attribute type="groupHash" name="usergroup" use="optional"/>
+                <xs:attribute type="nonEmptyString" name="usergroup" use="optional"/>
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
@@ -316,7 +309,7 @@
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="xs:nonNegativeInteger">
-                            <xs:attribute type="groupHash" name="usergroup" use="optional"/>
+                            <xs:attribute type="nonEmptyString" name="usergroup" use="optional"/>
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
@@ -326,7 +319,7 @@
 
     <xs:complexType name="groupsType">
         <xs:sequence>
-            <xs:element type="groupHash" name="group" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="nonEmptyString" name="group" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -336,7 +329,7 @@
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="xs:dateTime">
-                            <xs:attribute type="groupHash" name="usergroup" use="optional"/>
+                            <xs:attribute type="nonEmptyString" name="usergroup" use="optional"/>
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
@@ -350,7 +343,7 @@
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="xs:decimal">
-                            <xs:attribute type="groupHash" name="usergroup" use="optional"/>
+                            <xs:attribute type="nonEmptyString" name="usergroup" use="optional"/>
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
@@ -364,7 +357,7 @@
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="xs:decimal">
-                            <xs:attribute type="groupHash" name="usergroup" use="optional"/>
+                            <xs:attribute type="nonEmptyString" name="usergroup" use="optional"/>
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
@@ -378,7 +371,7 @@
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="xs:integer">
-                            <xs:attribute type="groupHash" name="usergroup" use="optional"/>
+                            <xs:attribute type="nonEmptyString" name="usergroup" use="optional"/>
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
@@ -392,7 +385,7 @@
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="xs:boolean">
-                            <xs:attribute type="groupHash" name="usergroup" use="optional"/>
+                            <xs:attribute type="nonEmptyString" name="usergroup" use="optional"/>
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
