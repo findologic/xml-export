@@ -4,7 +4,7 @@
   <groupId>com.findologic</groupId>
   <artifactId>xml-export</artifactId>
   <packaging>jar</packaging>
-  <version>1.8.0-SO-variants-SNAPSHOT</version>
+  <version>1.8.0-SO-variants-dev2-SNAPSHOT</version>
   <name>xml-export</name>
   <url>http://maven.apache.org</url>
 </project>

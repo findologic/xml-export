@@ -75,7 +75,6 @@
             <xs:element type="groupsType" name="groups" minOccurs="0" maxOccurs="1"/>
             <xs:element type="allPropertiesType" name="allProperties" minOccurs="0" maxOccurs="1"/>
             <xs:element type="overriddenPricesType" name="overriddenPrices" minOccurs="0" maxOccurs="1"/>
-            <xs:element type="visibilitiesType" name="visibilities" minOccurs="0" maxOccurs="1"/>
         </xs:all>
         <xs:attribute type="nonEmptyString" name="id" use="required"/>
     </xs:complexType>
@@ -174,7 +173,7 @@
             <xs:element name="url" minOccurs="1" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:simpleContent>
-                        <xs:extension base="httpURI">
+                        <xs:extension base="nonEmptyString">
                             <xs:attribute type="nonEmptyString" name="usergroup" use="optional"/>
                         </xs:extension>
                     </xs:simpleContent>
@@ -356,7 +355,7 @@
             <xs:element name="bonus" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:simpleContent>
-                        <xs:extension base="xs:decimal">
+                        <xs:extension base="bonusRangeType">
                             <xs:attribute type="nonEmptyString" name="usergroup" use="optional"/>
                         </xs:extension>
                     </xs:simpleContent>
@@ -364,6 +363,12 @@
             </xs:element>
         </xs:sequence>
     </xs:complexType>
+
+    <xs:simpleType name="bonusRangeType">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="-0.9"/>
+        </xs:restriction>
+    </xs:simpleType>
 
     <xs:complexType name="sortsType">
         <xs:sequence>
