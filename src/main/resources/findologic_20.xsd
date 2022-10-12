@@ -68,10 +68,10 @@
         <xs:all>
             <!-- Mandatory -->
             <xs:element type="allOrdernumbersType" name="allOrdernumbers" minOccurs="1" maxOccurs="1"/>
-            <xs:element type="namesType" name="names" minOccurs="1" maxOccurs="1"/>
-            <xs:element type="pricesType" name="prices" minOccurs="1" maxOccurs="1"/>
-            <xs:element type="allAttributesType" name="allAttributes" minOccurs="1" maxOccurs="1"/>
+            <xs:element type="variantsAttributesType" name="allAttributes" minOccurs="1" maxOccurs="1"/>
             <!-- Optional -->
+            <xs:element type="namesType" name="names" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="pricesType" name="prices" minOccurs="0" maxOccurs="1"/>
             <xs:element type="groupsType" name="groups" minOccurs="0" maxOccurs="1"/>
             <xs:element type="allPropertiesType" name="allProperties" minOccurs="0" maxOccurs="1"/>
             <xs:element type="overriddenPricesType" name="overriddenPrices" minOccurs="0" maxOccurs="1"/>
@@ -151,6 +151,17 @@
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element type="keyValuesPair" name="attribute" maxOccurs="unbounded" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="variantsAttributesType">
+        <xs:sequence>
+            <xs:element name="attributes" maxOccurs="unbounded" minOccurs="1">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element type="keyValuesPair" name="attribute" maxOccurs="unbounded" minOccurs="1"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -335,7 +346,7 @@
 
     <xs:complexType name="overriddenPricesType">
         <xs:sequence>
-            <xs:element name="overriddenPrice" minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="overriddenPrice" minOccurs="1" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="xs:decimal">
