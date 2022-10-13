@@ -173,7 +173,7 @@
             <xs:element name="url" minOccurs="1" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:simpleContent>
-                        <xs:extension base="nonEmptyString">
+                        <xs:extension base="httpURI">
                             <xs:attribute type="nonEmptyString" name="usergroup" use="optional"/>
                         </xs:extension>
                     </xs:simpleContent>
@@ -228,7 +228,7 @@
     <!-- Simple type variations -->
     <xs:simpleType name="httpURI">
         <xs:restriction base="xs:anyURI">
-            <xs:pattern value="http[s]?://.*"/>
+            <xs:pattern value="(http[s]?:/)?/.*"/>
         </xs:restriction>
     </xs:simpleType>
 
