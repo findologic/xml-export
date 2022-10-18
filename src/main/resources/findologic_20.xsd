@@ -186,16 +186,16 @@
     <!-- Prices -->
     <xs:complexType name="pricesType">
         <xs:sequence>
-            <xs:element name="price" minOccurs="1" maxOccurs="unbounded">
-                <xs:complexType>
-                    <xs:simpleContent>
-                        <xs:extension base="xs:decimal">
-                            <xs:attribute type="nonEmptyString" name="usergroup" use="optional"/>
-                        </xs:extension>
-                    </xs:simpleContent>
-                </xs:complexType>
-            </xs:element>
+            <xs:element type="basePriceType" name="price" minOccurs="1" maxOccurs="unbounded"/>
         </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="basePriceType">
+        <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+                <xs:attribute type="nonEmptyString" name="usergroup" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
     </xs:complexType>
 
     <!-- Ordernumber -->
@@ -332,15 +332,7 @@
 
     <xs:complexType name="overriddenPricesType">
         <xs:sequence>
-            <xs:element name="overriddenPrice" minOccurs="1" maxOccurs="unbounded">
-                <xs:complexType>
-                    <xs:simpleContent>
-                        <xs:extension base="xs:decimal">
-                            <xs:attribute type="nonEmptyString" name="usergroup" use="optional"/>
-                        </xs:extension>
-                    </xs:simpleContent>
-                </xs:complexType>
-            </xs:element>
+            <xs:element type="basePriceType" name="overriddenPrice" minOccurs="1" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
