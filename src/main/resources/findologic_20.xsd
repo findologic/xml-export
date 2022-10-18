@@ -21,15 +21,9 @@
                     </xs:unique>
                 </xs:element>
             </xs:sequence>
-            <xs:attribute type="versionType" name="version" use="required"/>
+            <xs:attribute type="xs:string" name="version"/>
         </xs:complexType>
     </xs:element>
-
-    <xs:simpleType name="versionType">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="2.0"/>
-        </xs:restriction>
-    </xs:simpleType>
 
     <!-- Structure of items. -->
     <xs:complexType name="itemType">
