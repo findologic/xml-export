@@ -47,6 +47,28 @@
             <xs:element type="bonusesType" name="bonuses" minOccurs="0" maxOccurs="1"/>
             <xs:element type="sortsType" name="sorts" minOccurs="0" maxOccurs="1"/>
             <xs:element type="visibilitiesType" name="visibilities" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="variantsType" name="variants" minOccurs="0" maxOccurs="1"/>
+        </xs:all>
+        <xs:attribute type="nonEmptyString" name="id" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="variantsType">
+        <xs:sequence>
+            <xs:element type="variantType" name="variant" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="variantType">
+        <xs:all>
+            <!-- Mandatory -->
+            <xs:element type="allOrdernumbersType" name="allOrdernumbers" minOccurs="1" maxOccurs="1"/>
+            <xs:element type="variantsAttributesType" name="allAttributes" minOccurs="1" maxOccurs="1"/>
+            <!-- Optional -->
+            <xs:element type="namesType" name="names" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="pricesType" name="prices" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="groupsType" name="groups" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="allPropertiesType" name="allProperties" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="overriddenPricesType" name="overriddenPrices" minOccurs="0" maxOccurs="1"/>
         </xs:all>
         <xs:attribute type="nonEmptyString" name="id" use="required"/>
     </xs:complexType>
@@ -127,6 +149,17 @@
             </xs:element>
         </xs:sequence>
     </xs:complexType>
+    <xs:complexType name="variantsAttributesType">
+        <xs:sequence>
+            <xs:element name="attributes" maxOccurs="unbounded" minOccurs="1">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element type="keyValuesPair" name="attribute" maxOccurs="unbounded" minOccurs="1"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
 
     <!-- URLs -->
     <xs:complexType name="urlsType">
@@ -153,16 +186,16 @@
     <!-- Prices -->
     <xs:complexType name="pricesType">
         <xs:sequence>
-            <xs:element name="price" minOccurs="1" maxOccurs="unbounded">
-                <xs:complexType>
-                    <xs:simpleContent>
-                        <xs:extension base="xs:decimal">
-                            <xs:attribute type="nonEmptyString" name="usergroup" use="optional"/>
-                        </xs:extension>
-                    </xs:simpleContent>
-                </xs:complexType>
-            </xs:element>
+            <xs:element type="basePriceType" name="price" minOccurs="1" maxOccurs="unbounded"/>
         </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="basePriceType">
+        <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+                <xs:attribute type="nonEmptyString" name="usergroup" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
     </xs:complexType>
 
     <!-- Ordernumber -->
@@ -189,7 +222,7 @@
     <!-- Simple type variations -->
     <xs:simpleType name="httpURI">
         <xs:restriction base="xs:anyURI">
-            <xs:pattern value="http[s]?://.*"/>
+            <xs:pattern value="(http[s]?:/)?/.*"/>
         </xs:restriction>
     </xs:simpleType>
 
@@ -299,15 +332,7 @@
 
     <xs:complexType name="overriddenPricesType">
         <xs:sequence>
-            <xs:element name="overriddenPrice" minOccurs="0" maxOccurs="unbounded">
-                <xs:complexType>
-                    <xs:simpleContent>
-                        <xs:extension base="xs:decimal">
-                            <xs:attribute type="nonEmptyString" name="usergroup" use="optional"/>
-                        </xs:extension>
-                    </xs:simpleContent>
-                </xs:complexType>
-            </xs:element>
+            <xs:element type="basePriceType" name="overriddenPrice" minOccurs="1" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -316,7 +341,7 @@
             <xs:element name="bonus" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:simpleContent>
-                        <xs:extension base="xs:decimal">
+                        <xs:extension base="bonusRangeType">
                             <xs:attribute type="nonEmptyString" name="usergroup" use="optional"/>
                         </xs:extension>
                     </xs:simpleContent>
@@ -324,6 +349,12 @@
             </xs:element>
         </xs:sequence>
     </xs:complexType>
+
+    <xs:simpleType name="bonusRangeType">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="-0.9"/>
+        </xs:restriction>
+    </xs:simpleType>
 
     <xs:complexType name="sortsType">
         <xs:sequence>
