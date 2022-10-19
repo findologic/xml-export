@@ -54,7 +54,7 @@
 
     <xs:complexType name="variantsType">
         <xs:sequence>
-            <xs:element type="variantType" name="variant" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element type="variantType" name="variant" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
