@@ -66,6 +66,8 @@
             <!-- Optional -->
             <xs:element type="namesType" name="names" minOccurs="0" maxOccurs="1"/>
             <xs:element type="pricesType" name="prices" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="urlsType" name="urls" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="allImagesType" name="allImages" minOccurs="0" maxOccurs="1"/>
             <xs:element type="groupsType" name="groups" minOccurs="0" maxOccurs="1"/>
             <xs:element type="allPropertiesType" name="allProperties" minOccurs="0" maxOccurs="1"/>
             <xs:element type="overriddenPricesType" name="overriddenPrices" minOccurs="0" maxOccurs="1"/>
